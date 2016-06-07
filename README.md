@@ -1,3 +1,3 @@
 # MeetUp
 
-gulp will launch browser-sync
+gulp - launches browser-sync
