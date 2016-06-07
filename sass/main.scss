@@ -1,0 +1,225 @@
+@import 'extra';
+
+html, body {
+	margin: 0;
+	padding: 0;
+	top: 0px;
+	font-family: Arial;
+	background-color: #FAFAFA;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+header {
+	background: #00AFCD repeat;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+}
+
+#main .event:nth-child(n+4){
+	margin-top: 5%;
+}
+
+#new-event-wrapper {
+	height: 1100px;
+	width: 90%;
+	padding: 5%;
+	background: white;
+	border-bottom: solid 2px rgba(158, 158, 158, 0.3);
+}
+input[type="text"], input#typeofevent, input[type="datetime-local"], input[type="email"], input[type="password"]  {
+	width: 300px;
+	padding: 5px;
+	font-size: 1em;
+	margin-left: 10px;
+}
+
+#registersubmit {
+	background: #02b875;
+	color: white;
+	border: solid 2px #02b875;
+	margin-left: 10px;
+	padding: 5px;
+	width: 314px;
+	font-size: 1em;
+}
+
+#registersubmit:hover {
+	background-color: #00ab6b;
+	border-color: #00ab6b;
+	cursor: pointer;
+}
+
+#register {
+	position: absolute;
+	top: 10px;
+	left: 5px;
+	padding: 30px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+	span {
+		background: white;
+		padding: 10px;
+		border-radius: 2px;
+	}
+
+	span:hover {
+		cursor: pointer;
+	}
+}
+
+hr {
+	border-top: solid white;
+	border-left: solid white;
+	border-right: solid white;
+}
+
+#new-event {
+	position: absolute;
+	top: 10px;
+	right: 5px;
+	padding: 30px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+	span {
+		background: #04D487;
+		padding: 10px;
+		border-radius: 2px;
+	}
+
+	span:hover {
+		background: #00ab6b;
+		cursor: pointer;
+	}
+}
+
+#errorMessages {
+	color: red;
+	margin-top: 20px;
+}
+
+#success {
+	color: #04D487;
+	margin-top: 20px;
+}
+
+#main {
+	width: 90%;
+	height: 100%;
+	padding: 5%;
+	display: inline-block;
+	text-align: center;
+}
+
+.event {
+	width: 24%;
+	height: 600px;
+	background: white;
+	border: solid 2px rgba(158, 158, 158, 0.3);
+	margin-left: 3%;
+	margin-right: 3%;
+	display: inline-block;
+}
+
+h4 {
+	margin: 0px;
+	padding: 20px;
+}
+
+.event-name {
+	background: #00AFCD;
+	color: white;
+	font-weight: 200;
+	font-family: 'Vibur', cursive;
+	font-size: 1.5em;
+}
+
+.event-host {
+	position: absolute;
+	margin-top: -20px;
+	background: #00AFCD;
+	padding: 10px;
+	color: white;
+}
+
+.date-wrapper, .start-date, .end-date {
+	display: inline-block;
+}
+
+.date-wrapper span {
+	margin-left: 8px;
+	margin-bottom: 0px;
+	font-size: 0.9em;
+}
+
+.date-wrapper, .date-wrapper p {
+	margin-bottom: 0px;
+	font-size: 0.9em;
+}
+
+.event-type, .attending, .optionalmessage {
+	margin-bottom: 0px;
+}
+
+.attending, .optionalmessage {
+	font-size: 0.8em;
+	color: grey;
+	margin-bottom: -5px;
+}
+
+header {
+	h1 {
+		margin: 0px;
+		text-align: center;
+		color: white;
+		padding:30px;
+		font-family: 'Lato', sans-serif;
+		text-decoration: uppercase;
+	}
+}
+// and (min-device-width: 768px)
+
+@media screen and (max-width: 1024px) {
+		.event {
+			width: 39%;
+			margin-top: 5%;
+			height: 600px;
+		}
+
+		#main .event:nth-child(-n+2){
+			margin-top: 0%;
+		}
+		#register, #new-event {
+			font-size: 14px;
+		}
+}
+
+@media screen and (max-width: 600px) {
+	.event {
+		width: 84%;
+		margin-top: 5%;
+		height: 650px;
+	}
+
+	#main .event:nth-child(-n+2){
+		margin-top: 5%;
+	}
+
+	#register, #new-event {
+		font-size: 12px;
+	}
+}

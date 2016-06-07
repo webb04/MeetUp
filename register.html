@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <title>Web Productivity Sample</title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+      <header class="main-header">
+        <a href="/"><h1>MEET</h1></a>
+      </header>
+
+      <div id="main">
+        <div class="register-form">
+          <form>
+            <label for"name" style="display: none" />Name: </label>
+            <input type="text" required id="name" placeholder="Full name" autofocus autocomplete="name"/>
+            <br><br>
+
+            <label for"email" style="display: none" />Email: </label>
+            <input type="email" required id="email" placeholder="Email" autocomplete="email"/>
+            <br><br>
+
+            <label for"password" style="display: none" />Password: </label>
+            <input type="password" required id="password" placeholder="Password" minlength="6"/>
+            <br><br>
+
+            <label for"password" style="display: none" />Confirm password: </label>
+            <input type="password" required id="confirmpassword" placeholder="Confirm password" minlength="6"/>
+            <br><br>
+
+            <button onclick="registerValidate(); return false" id="registersubmit" type="submit" style="display: inline-block">Register</button>
+          </form>
+          <div id="errorMessages">
+
+          </div>
+          <div id="success">
+
+          </div>
+        </div>
+      </div>
+
+      <script src="js/register.js"></script>
+      <script>
+        function registerValidate() {
+          if (document.getElementById("password").value != document.getElementById("confirmpassword").value) {
+            document.getElementById("errorMessages").innerHTML += "The passwords do not match";
+            document.getElementById("success").innerHTML = "";
+          } else {
+            if (document.getElementById("password").value.match("^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,}$")) {
+              document.getElementById("errorMessages").innerHTML = "";
+              document.getElementById("success").innerHTML = "Successfully registered!";
+            } else {
+              document.getElementById("errorMessages").innerHTML += "You need at least 1 speacial character ($@$!%*?&), 1 number and 1 alphabet";
+              document.getElementById("success").innerHTML = "";
+            }
+          }
+        }
+      </script>
+
+    </body>
+</html>
