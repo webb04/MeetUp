@@ -91,21 +91,30 @@ function validateEventDates() {
   var endDate = new Date(document.getElementById('end-fc').value).valueOf();
   var startDate = new Date(document.getElementById('start-fc').value).valueOf();
   var today = new Date();
-
   var valid = true;
 
   if (endDate < startDate) {
       document.getElementById('dateordererror').innerHTML = "End date should not be before start date";
+      var el = document.getElementById('end-fc');
+      el.style.border = 'solid 1px #F56060';
       valid = false;
   } else {
       document.getElementById('dateordererror').innerHTML = "";
+      if (!isNaN(endDate)) {
+        var el = document.getElementById('end-fc');
+        el.style.border = 'solid 1px #04D487';
+      }
   }
 
   if (startDate < today) {
       document.getElementById('startdateerror').innerHTML = "Start date should not be in the past";
+      var el = document.getElementById('start-fc');
+      el.style.border = 'solid 1px #F56060';
       valid = false;
   } else {
       document.getElementById('startdateerror').innerHTML = "";
+      var el = document.getElementById('start-fc');
+      el.style.border = 'solid 1px #04D487';
   }
 
   if (valid) {
