@@ -2,6 +2,8 @@ var attending = [];
 var latitude, longitude;
 var el = document.getElementById('loader');
 el.style.display = 'none';
+var el = document.getElementById('attending');
+el.style.border = 'solid 1px #F56060';
 
 function geoFindMe() {
   var el = document.getElementById('loader');
@@ -53,6 +55,9 @@ function addAttendee() {
     document.getElementById('attendees').innerHTML += '<li>' + document.getElementById('attending').value + '</li>';
     document.getElementById('attending').value = '';
 
+    var el = document.getElementById('attending');
+    el.style.border = 'solid 1px #04D487';
+
     var el = document.getElementById("new-event-wrapper");
     var height = el.offsetHeight;
     var newHeight = height - 80;
@@ -63,6 +68,8 @@ function addAttendee() {
 function clearForm() {
   document.getElementById('attendees').innerHTML = '';
   attending = [];
+  var el = document.getElementById('attending');
+  el.style.border = 'solid 1px #F56060';
 
   var el = document.getElementById("new-event-wrapper");
   el.style.height = '1000px';

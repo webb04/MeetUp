@@ -67,6 +67,14 @@ input[type="text"], input[type="date"], input#typeofevent, input[type="datetime-
 	margin-left: 10px;
 }
 
+input[type="text"]:invalid, input[type="date"]:invalid, input#typeofevent:invalid, input[type="datetime-local"]:invalid, input[type="email"]:invalid, input[type="password"]:invalid  {
+	border: solid 1px #F56060;
+}
+
+input[type="text"]:valid, input[type="date"]:valid, input#typeofevent:valid, input[type="datetime-local"]:valid, input[type="email"]:valid, input[type="password"]:valid  {
+	border: solid 1px #04D487;
+}
+
 progress {
 	margin-bottom: 20px;
 	border: solid 1px lightgrey;
