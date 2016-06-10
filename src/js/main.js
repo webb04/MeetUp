@@ -48,4 +48,5 @@
 function openEventWindow() {
 	var el = document.getElementById('new-event-wrapper');
 	el.style.display = el.style.display === 'none' ? '' : 'none';
+	document.forms[0].elements[0].focus();
 }

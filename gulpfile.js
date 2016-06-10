@@ -8,13 +8,15 @@ var eslint = require('gulp-eslint');
 var jasmine = require('gulp-jasmine-phantom');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
+var sourcemaps = require('gulp-sourcemaps');
+var gutil = require('gulp-util');
 
-gulp.task('default', ['copy-html', 'copy-images', 'styles', 'lint', 'scripts'], function() {
-	gulp.watch('sass/**/*.scss', ['styles']);
-	gulp.watch('js/**/*.js', ['lint']);
-	gulp.watch('/index.html', ['copy-html']);
+gulp.task('default', ['copy-html', 'copy-images', 'styles', 'scripts'], function() {
+	gulp.watch('src/sass/**/*.scss', ['styles']);
+	// gulp.watch('src/js/**/*.js', ['lint']);
+	gulp.watch('src/index.html', ['copy-html']);
 	gulp.watch('./dist/index.html').on('change', browserSync.reload);
-	gulp.watch('/register.html', ['copy-html']);
+	gulp.watch('src/register.html', ['copy-html']);
 	gulp.watch('./dist/register.html').on('change', browserSync.reload);
 
 	browserSync.init({
@@ -26,37 +28,30 @@ gulp.task('dist', [
 	'copy-html',
 	'copy-images',
 	'styles',
-	'lint',
-	'scripts-dist'
+	'scripts'
 ]);
 
 gulp.task('scripts', function() {
-	gulp.src('js/**/*.js')
+	gulp.src('src/js/**/*.js')
 		.pipe(concat('all.js'))
-		.pipe(gulp.dest('dist/js'));
-});
-
-gulp.task('scripts-dist', function() {
-	gulp.src('js/**/*.js')
-		.pipe(concat('all.js'))
-		.pipe(uglify())
+		.pipe(uglify().on('error', gutil.log))
 		.pipe(gulp.dest('dist/js'));
 });
 
 gulp.task('copy-html', function() {
-	gulp.src('./index.html')
+	gulp.src('src/index.html')
 		.pipe(gulp.dest('./dist'));
-	gulp.src('./register.html')
+	gulp.src('src/register.html')
 		.pipe(gulp.dest('./dist'));
 });
 
 gulp.task('copy-images', function() {
-	gulp.src('img/*')
+	gulp.src('src/img/*')
 		.pipe(gulp.dest('dist/img'));
 });
 
 gulp.task('styles', function() {
-	gulp.src('sass/**/*.scss')
+	gulp.src('src/sass/**/*.scss')
 		.pipe(sass({
 			outputStyle: 'compressed'
 		}).on('error', sass.logError))
@@ -68,7 +63,7 @@ gulp.task('styles', function() {
 });
 
 gulp.task('lint', function () {
-	return gulp.src(['js/**/*.js'])
+	return gulp.src(['src/js/**/*.js'])
 		// eslint() attaches the lint output to the eslint property
 		// of the file object so it can be used by other modules.
 		.pipe(eslint())
@@ -84,6 +79,6 @@ gulp.task('tests', function () {
 	gulp.src('tests/spec/extraSpec.js')
 		.pipe(jasmine({
 			integration: true,
-			vendor: 'js/**/*.js'
+			vendor: 'src/js/**/*.js'
 		}));
 });

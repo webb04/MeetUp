@@ -25,17 +25,70 @@ header {
 }
 
 #new-event-wrapper {
-	height: 1100px;
+	height: 950px;
 	width: 90%;
 	padding: 5%;
 	background: white;
 	border-bottom: solid 2px rgba(158, 158, 158, 0.3);
 }
-input[type="text"], input#typeofevent, input[type="datetime-local"], input[type="email"], input[type="password"]  {
+
+#create-event-button {
+	background: #04D487;
+	padding: 10px;
+	border-radius: 2px;
+	border: solid 1px #04D487;
+	margin-right: 30px;
+}
+
+#clear-event-form-button {
+	background: #F56060;
+	padding: 10px;
+	border-radius: 2px;
+	border: solid 1px #F56060;
+}
+
+#create-event-button:hover {
+	background-color: #00ab6b;
+	border-color: #00ab6b;
+	cursor: pointer;
+}
+
+#clear-event-form-button:hover {
+	background: #F14040;
+	border: solid 1px #F14040;
+	cursor: pointer;
+}
+
+
+input[type="text"], input[type="date"], input#typeofevent, input[type="datetime-local"], input[type="email"], input[type="password"]  {
 	width: 300px;
 	padding: 5px;
 	font-size: 1em;
 	margin-left: 10px;
+}
+
+progress {
+	margin-bottom: 20px;
+	border: solid 1px lightgrey;
+	width: 300px;
+	height: 20px;
+}
+
+progress::-webkit-progress-value {
+	background: #00afcd;
+}
+
+progress::-webkit-progress-bar {
+	background: white;
+}
+
+form h5 {
+	font-weight: 200;
+}
+
+#dateordererror, #startdateerror {
+	margin-top: 20px;
+	color: red;
 }
 
 #registersubmit {
@@ -48,13 +101,17 @@ input[type="text"], input#typeofevent, input[type="datetime-local"], input[type=
 	font-size: 1em;
 }
 
+#loader {
+	width: 50px;
+}
+
 #registersubmit:hover {
 	background-color: #00ab6b;
 	border-color: #00ab6b;
 	cursor: pointer;
 }
 
-#register {
+#link {
 	position: absolute;
 	top: 10px;
 	left: 5px;
@@ -107,7 +164,7 @@ hr {
 	}
 }
 
-#errorMessages {
+#passwordErrorMessage, #emailErrorMessage, #confirmPasswordErrorMessage {
 	color: red;
 	margin-top: 20px;
 }
@@ -191,7 +248,6 @@ header {
 		text-decoration: uppercase;
 	}
 }
-// and (min-device-width: 768px)
 
 @media screen and (max-width: 1024px) {
 		.event {
@@ -203,7 +259,7 @@ header {
 		#main .event:nth-child(-n+2){
 			margin-top: 0%;
 		}
-		#register, #new-event {
+		#link, #new-event {
 			font-size: 14px;
 		}
 }
@@ -219,7 +275,15 @@ header {
 		margin-top: 5%;
 	}
 
-	#register, #new-event {
+	#link, #new-event {
 		font-size: 12px;
+	}
+
+	#new-event-wrapper {
+		height: 1100px;
+		width: 90%;
+		padding: 5%;
+		background: white;
+		border-bottom: solid 2px rgba(158, 158, 158, 0.3);
 	}
 }

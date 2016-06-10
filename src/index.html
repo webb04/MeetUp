@@ -3,17 +3,16 @@
     <head>
       <meta charset="utf-8">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
-      <title>Web Productivity Sample</title>
+      <title>Meet</title>
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-      <link href='https://fonts.googleapis.com/css?family=Vibur' rel='stylesheet' type='text/css'>
+      <link href='https://fonts.googleapis.com/css?family=Lato|Vibur' rel='stylesheet' type='text/css'>
       <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
       <header class="main-header">
         <h1>MEET</h1>
-        <a href="/register.html"><div id="register"><span>Register</span></div></a>
+        <a href="/register.html"><div id="link"><span>Register</span></div></a>
         <div id="new-event"><span>New Event</span></div>
       </header>
       <div id="new-event-wrapper">
@@ -36,17 +35,20 @@
 
           <br><br>
           <label for="start-fc">Start date and time:  </label>
-          <input type="datetime-local" name="cal" required id="start-fc">
+          <input type="datetime-local" onBlur="validateEventDates()" name="cal" required id="start-fc">
           <br><br>
 
           <label for="end-fc">End date and time:  </label>
-          <input type="datetime-local" name="cal" required id="end-fc">
+          <input type="datetime-local" name="cal" onBlur="validateEventDates()" required id="end-fc">
+          <div id="dateordererror"></div>
+          <div id="startdateerror"></div>
           <br><br>
           <hr>
 
           <br><br>
           <label>Location: <input id="location" type="text" required/></label>
           <p><button onclick="geoFindMe()">Use current location</button></p>
+          <div><img id="loader" src="img/ring.svg"/></div>
           <div id="out" style="display: none"></div>
           <br>
           <hr>
@@ -71,8 +73,8 @@
 
           <br><br>
           <div>
-            <button onclick="createNewEvent()" type="submit" style="display: inline-block">Create Event</button>
-            <button onclick="clearAllForm()" style="display: inline-block">Clear Form</button>
+            <button onclick="createNewEvent()"  id="create-event-button" type="submit" style="display: inline-block">Create Event</button>
+            <button onclick="clearAllForm()" id="clear-event-form-button" style="display: inline-block">Clear Form</button>
           </form>
         </div>
       </div>
@@ -81,6 +83,6 @@
       </div>
 
       <script src="js/all.js"></script>
-      <script src="js/form.js"></script>
+      <!-- <script src="js/form.js"></script> -->
     </body>
 </html>
