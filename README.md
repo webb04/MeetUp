@@ -1,5 +1,5 @@
-# MeetUp
+## Getting Started
 
-npm install
-
-gulp - launches browser-sync
+- `git clone` this repository
+- `npm install`
+- `gulp`
